@@ -1,10 +1,13 @@
 import Counter from "./Counter"
+import {CounterProvider, initState} from "./context/CounterContex.tsx";
 
 function App() {
 
     return (
         <>
-            <Counter>{(num: number) => <>Current Count: {num}</>}</Counter>
+            <CounterProvider count={initState.count} text={initState.text}>
+                <Counter>{(num: number) => <>Current Count: {num}</>}</Counter>
+            </CounterProvider>
         </>
     )
 }
